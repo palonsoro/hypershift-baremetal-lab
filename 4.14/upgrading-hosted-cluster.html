@@ -367,7 +367,7 @@
     <li><a href="upgrading-hosted-cluster.html">Upgrading the Hosted Cluster</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/RHsyseng/hypershift-baremetal-lab/edit/lab-4.15/documentation/modules/ROOT/pages/upgrading-hosted-cluster.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/RHsyseng/hypershift-baremetal-lab/edit/lab-4.14/documentation/modules/ROOT/pages/upgrading-hosted-cluster.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
@@ -397,7 +397,7 @@
 </div>
 </li>
 <li>
-<p>Click on it and configure the control plane update to v4.15.8.</p>
+<p>Click on it and configure the control plane update to v4.14.2.</p>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -437,7 +437,7 @@ Process may show <code>Upgrade failing</code>, give it some time to reconcile.
 </div>
 </li>
 <li>
-<p>The cluster will report version 4.15.8 after a few minutes (up to 10 minutes).</p>
+<p>The cluster will report version 4.14.2 after a few minutes (up to 10 minutes).</p>
 </li>
 </ol>
 </div>
@@ -455,7 +455,7 @@ Process may show <code>Upgrade failing</code>, give it some time to reconcile.
 </div>
 </li>
 <li>
-<p>Click on it and configure the data plane update to v4.15.8.</p>
+<p>Click on it and configure the data plane update to v4.14.2.</p>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -528,7 +528,7 @@ hosted-worker1   Ready    worker   147m   v1.27.6+f67aeb3   192.168.125.31   &lt
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME                CLUSTER   DESIRED NODES   CURRENT NODES   AUTOSCALING   AUTOREPAIR   VERSION   UPDATINGVERSION   UPDATINGCONFIG   MESSAGE
-nodepool-hosted-1   hosted    2               2               False         False        4.15.8</code></pre>
+nodepool-hosted-1   hosted    2               2               False         False        4.14.2</code></pre>
 </div>
 </div>
 </li>
@@ -548,11 +548,11 @@ nodepool-hosted-1   hosted    2               2               False         Fals
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Let&#8217;s get the hosted cluster updated from 4.15.8 to 4.15.9. We start with the Control Plane.</p>
+<p>Let&#8217;s get the hosted cluster updated from 4.14.2 to 4.14.3. We start with the Control Plane.</p>
 <div class="listingblock console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/hypershift-lab/mgmt-kubeconfig -n hosted patch hostedcluster hosted \
-    -p '{"spec":{"release":{"image":"quay.io/openshift-release-dev/ocp-release:4.15.9-x86_64"}}}' \
+    -p '{"spec":{"release":{"image":"quay.io/openshift-release-dev/ocp-release:4.14.3-x86_64"}}}' \
     --type merge</code></pre>
 </div>
 </div>
@@ -585,16 +585,16 @@ It may take up to 10 minutes for the hosted cluster to start the update process.
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
-console                                    4.15.8    True        False         False      59s
-csi-snapshot-controller                    4.15.8    True        False         False      143m
-dns                                        4.15.8    True        True          False      160m    DNS "default" reports Progressing=True: "Have 1 available DNS pods, want 2.\nHave 1 up-to-date DNS pods, want 2.\nHave 1 available node-resolver pods, want 2."...
-image-registry                             4.15.9    True        False         False      18m
+console                                    4.14.2    True        False         False      59s
+csi-snapshot-controller                    4.14.2    True        False         False      143m
+dns                                        4.14.2    True        True          False      160m    DNS "default" reports Progressing=True: "Have 1 available DNS pods, want 2.\nHave 1 up-to-date DNS pods, want 2.\nHave 1 available node-resolver pods, want 2."...
+image-registry                             4.14.3    True        False         False      18m
 &lt;OMITTED&gt;</code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>Eventually, all cluster operators will be running 4.15.9 and the <code>ClusterVersion</code> will report that release.</p>
+<p>Eventually, all cluster operators will be running 4.14.3 and the <code>ClusterVersion</code> will report that release.</p>
 <div class="listingblock console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --insecure-skip-tls-verify=true --kubeconfig ~/hypershift-lab/hosted-kubeconfig \
@@ -604,7 +604,7 @@ image-registry                             4.15.9    True        False         F
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME      VERSION   AVAILABLE   PROGRESSING   SINCE   STATUS
-version   4.15.9    True        False         1s      Cluster version is 4.15.9</code></pre>
+version   4.14.3    True        False         1s      Cluster version is 4.14.3</code></pre>
 </div>
 </div>
 </li>
@@ -616,11 +616,11 @@ version   4.15.9    True        False         1s      Cluster version is 4.15.9<
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Now that the control plane is running 4.15.9, let&#8217;s move the nodes to 4.15.9.</p>
+<p>Now that the control plane is running 4.14.3, let&#8217;s move the nodes to 4.14.3.</p>
 <div class="listingblock console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/hypershift-lab/mgmt-kubeconfig -n hosted patch nodepool nodepool-hosted-1 \
-    -p '{"spec":{"release":{"image":"quay.io/openshift-release-dev/ocp-release:4.15.9-x86_64"}}}' \
+    -p '{"spec":{"release":{"image":"quay.io/openshift-release-dev/ocp-release:4.14.3-x86_64"}}}' \
     --type merge</code></pre>
 </div>
 </div>
@@ -672,7 +672,7 @@ hosted-worker1   Ready    worker   3h8m   v1.27.6+b49f9d1   192.168.125.31   &lt
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME                CLUSTER   DESIRED NODES   CURRENT NODES   AUTOSCALING   AUTOREPAIR   VERSION   UPDATINGVERSION   UPDATINGCONFIG   MESSAGE
-nodepool-hosted-1   hosted    2               2               False         False        4.15.9</code></pre>
+nodepool-hosted-1   hosted    2               2               False         False        4.14.3</code></pre>
 </div>
 </div>
 </li>
@@ -692,9 +692,144 @@ nodepool-hosted-1   hosted    2               2               False         Fals
   </div>
 </main>
 </div>
+
+<!-- OUTDATED LAB -->
+
+<style>
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10;
+  top: 10%;
+  left: 1%;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:10%; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:10%; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #FF0000;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+</style>
+
+<!-- The Modal -->
+<div id="outdatedlab-modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Outdated Lab</h2>
+    </div>
+    <div class="modal-body">
+      <p>You're searching and old version of the lab.</p>
+      <p><a id="newlaburl" href="https://github.com/RHsyseng/hypershift-baremetal-lab/">Go to latest</a></p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("outdatedlab-modal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+function getLatestLabURL(){
+  const repoUrl = 'https://api.github.com/repos/RHsyseng/hypershift-baremetal-lab';
+  return fetch(repoUrl)
+  .then(response => response.json())
+  .then(data => {
+    const defaultBranch = data.default_branch;
+    return defaultBranch;
+  })
+  .catch(error => {
+    return "notFound";
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const latestLabURLPromise = getLatestLabURL();
+  latestLabURLPromise.then(latestLabURL => {
+    if(latestLabURL != "notFound") {
+      var newLabUrl = document.getElementById("newlaburl");
+      newLabUrl.href = "https://labs.sysdeseng.com/hypershift-baremetal-lab/"+latestLabURL.replace("lab-","")+"/index.html"
+    }
+  });
+  modal.style.display = 'block';
+  });
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+<!-- ORIGINAL FOOTER -->
+
 <footer class="footer">
   <a class="rhd-logo" href="https://redhat.com" target="_blank"></div>
-</footer>
+</footer> 
 <script src="../_/js/vendor/clipboard.js"></script>
 <script src="../_/js/site.js"></script>
 <script async src="../_/js/vendor/highlight.js"></script>

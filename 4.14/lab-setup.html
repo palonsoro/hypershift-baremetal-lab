@@ -366,7 +366,7 @@
     <li><a href="lab-setup.html">Lab Setup</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/RHsyseng/hypershift-baremetal-lab/edit/lab-4.15/documentation/modules/ROOT/pages/lab-setup.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/RHsyseng/hypershift-baremetal-lab/edit/lab-4.14/documentation/modules/ROOT/pages/lab-setup.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
@@ -478,8 +478,8 @@ dnf -y install kcli bash-completion vim jq tar git python3-cherrypy</code></pre>
 <h3 id="install-oc-kubectl"><a class="anchor" href="#install-oc-kubectl"></a>Install oc/kubectl CLIs</h3>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kcli download oc -P version=stable -P tag='4.15'
-kcli download kubectl -P version=stable -P tag='4.15'
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kcli download oc -P version=stable -P tag='4.14'
+kcli download kubectl -P version=stable -P tag='4.14'
 mv kubectl oc /usr/bin/</code></pre>
 </div>
 </div>
@@ -498,12 +498,12 @@ mv kubectl oc /usr/bin/</code></pre>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dnf -y install dnsmasq policycoreutils-python-utils
 mkdir -p /opt/dnsmasq/include.d/
-curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/dnsmasq.conf" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/dnsmasq.conf</a> -o /opt/dnsmasq/dnsmasq.conf
-curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/upstream-resolv.conf" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/upstream-resolv.conf</a> -o /opt/dnsmasq/upstream-resolv.conf
-curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/management.ipv4" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/management.ipv4</a> -o /opt/dnsmasq/include.d/management.ipv4
-curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/hosted.ipv4" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/hosted.ipv4</a> -o /opt/dnsmasq/include.d/hosted.ipv4
-curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/infrastructure-host.ipv4" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/infrastructure-host.ipv4</a> -o /opt/dnsmasq/include.d/infrastructure-host.ipv4
-curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/dnsmasq-virt.service" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/dnsmasq/dnsmasq-virt.service</a> -o /etc/systemd/system/dnsmasq-virt.service
+curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/dnsmasq.conf" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/dnsmasq.conf</a> -o /opt/dnsmasq/dnsmasq.conf
+curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/upstream-resolv.conf" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/upstream-resolv.conf</a> -o /opt/dnsmasq/upstream-resolv.conf
+curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/management.ipv4" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/management.ipv4</a> -o /opt/dnsmasq/include.d/management.ipv4
+curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/hosted.ipv4" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/hosted.ipv4</a> -o /opt/dnsmasq/include.d/hosted.ipv4
+curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/infrastructure-host.ipv4" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/infrastructure-host.ipv4</a> -o /opt/dnsmasq/include.d/infrastructure-host.ipv4
+curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/dnsmasq-virt.service" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/dnsmasq/dnsmasq-virt.service</a> -o /etc/systemd/system/dnsmasq-virt.service
 touch /opt/dnsmasq/hosts.leases
 semanage fcontext -a -t dnsmasq_lease_t /opt/dnsmasq/hosts.leases
 restorecon /opt/dnsmasq/hosts.leases
@@ -521,7 +521,7 @@ systemctl mask dnsmasq</code></pre>
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -L <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/hypervisor/forcedns" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/hypervisor/forcedns</a> -o /etc/NetworkManager/dispatcher.d/forcedns
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -L <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/hypervisor/forcedns" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/hypervisor/forcedns</a> -o /etc/NetworkManager/dispatcher.d/forcedns
 chmod +x /etc/NetworkManager/dispatcher.d/forcedns
 systemctl restart NetworkManager
 /etc/NetworkManager/dispatcher.d/forcedns</code></pre>
@@ -581,7 +581,7 @@ systemctl enable chronyd --now</code></pre>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dnf install haproxy -y
 semanage port -a -t http_port_t -p tcp 6443
-curl -L <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/haproxy/haproxy.cfg" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/haproxy/haproxy.cfg</a> -o /etc/haproxy/haproxy.cfg
+curl -L <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/haproxy/haproxy.cfg" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/haproxy/haproxy.cfg</a> -o /etc/haproxy/haproxy.cfg
 systemctl enable haproxy --now</code></pre>
 </div>
 </div>
@@ -632,7 +632,7 @@ This step requires a valid OpenShift Pull Secret placed in /root/openshift_pull.
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/management-cluster/management.yml" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.15/lab-materials/lab-env-data/management-cluster/management.yml</a> -o /root/management.yml
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -sL <a href="https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/management-cluster/management.yml" class="bare">https://raw.githubusercontent.com/RHsyseng/hypershift-baremetal-lab/lab-4.14/lab-materials/lab-env-data/management-cluster/management.yml</a> -o /root/management.yml
 sed -i "s/CHANGE_ADMIN_PWD/admin/" management.yml
 sed -i "s/CHANGE_DEV_PWD/developer/" management.yml
 kcli create cluster openshift --pf management.yml --force</code></pre>
@@ -707,9 +707,144 @@ management-ctlplane-2.hypershift.lab   Ready    control-plane,master,worker   39
   </div>
 </main>
 </div>
+
+<!-- OUTDATED LAB -->
+
+<style>
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10;
+  top: 10%;
+  left: 1%;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:10%; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:10%; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #FF0000;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+</style>
+
+<!-- The Modal -->
+<div id="outdatedlab-modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Outdated Lab</h2>
+    </div>
+    <div class="modal-body">
+      <p>You're searching and old version of the lab.</p>
+      <p><a id="newlaburl" href="https://github.com/RHsyseng/hypershift-baremetal-lab/">Go to latest</a></p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("outdatedlab-modal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+function getLatestLabURL(){
+  const repoUrl = 'https://api.github.com/repos/RHsyseng/hypershift-baremetal-lab';
+  return fetch(repoUrl)
+  .then(response => response.json())
+  .then(data => {
+    const defaultBranch = data.default_branch;
+    return defaultBranch;
+  })
+  .catch(error => {
+    return "notFound";
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const latestLabURLPromise = getLatestLabURL();
+  latestLabURLPromise.then(latestLabURL => {
+    if(latestLabURL != "notFound") {
+      var newLabUrl = document.getElementById("newlaburl");
+      newLabUrl.href = "https://labs.sysdeseng.com/hypershift-baremetal-lab/"+latestLabURL.replace("lab-","")+"/index.html"
+    }
+  });
+  modal.style.display = 'block';
+  });
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+<!-- ORIGINAL FOOTER -->
+
 <footer class="footer">
   <a class="rhd-logo" href="https://redhat.com" target="_blank"></div>
-</footer>
+</footer> 
 <script src="../_/js/vendor/clipboard.js"></script>
 <script src="../_/js/site.js"></script>
 <script async src="../_/js/vendor/highlight.js"></script>
