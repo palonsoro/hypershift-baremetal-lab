@@ -36,7 +36,10 @@ image::hc-wizard1.png[Hosted Cluster Wizard Screen 1]
 +
 6. In the next screen enter the following details.
 +
+.. `Controller availability policy`: Single Replica
+.. `Infrastructure availability policy`: Single Replica
 .. `Namespace`: hardware-inventory
+.. `Use autoscaling`: Unchecked
 .. `Number of hosts`: 2
 +
 image::hc-wizard2.png[Hosted Cluster Wizard Screen 2]
@@ -127,46 +130,47 @@ oc --kubeconfig ~/hypershift-lab/mgmt-kubeconfig -n hosted-hosted get pods
 [console-input]
 [source,console,subs="attributes+,+macros"]
 -----
-NAME                                                  READY   STATUS    RESTARTS   AGE
-capi-provider-6fb8945d68-42fc8                        1/1     Running   0          17m
-catalog-operator-cb9c47bbb-g9jln                      2/2     Running   0          14m
-certified-operators-catalog-6d544fcc-75lv9            1/1     Running   0          14m
-cluster-api-7f7bbf4b55-sh6vv                          1/1     Running   0          17m
-cluster-autoscaler-6f5b6ffc88-gc8sw                   1/1     Running   0          14m
-cluster-image-registry-operator-57c4c97df-4vrr9       2/2     Running   0          14m
-cluster-network-operator-5bcfb7cd7f-7t5r4             1/1     Running   0          14m
-cluster-node-tuning-operator-76585fbb56-xnfmx         1/1     Running   0          14m
-cluster-policy-controller-5b7cd5b9bb-877zd            1/1     Running   0          14m
-cluster-storage-operator-77c7c745bb-f67fg             1/1     Running   0          14m
-cluster-version-operator-74f8d65c54-4ckj5             1/1     Running   0          14m
-community-operators-catalog-99c7777f4-dvwvt           1/1     Running   0          14m
-control-plane-operator-54b4675594-tcv9s               1/1     Running   0          17m
-csi-snapshot-controller-569fdcfdf-4mv5f               1/1     Running   0          13m
-csi-snapshot-controller-operator-9db777d7f-rq9gl      1/1     Running   0          14m
-csi-snapshot-webhook-644b97b4b6-dvrkb                 1/1     Running   0          13m
-dns-operator-5746ff8cc9-xnkxk                         1/1     Running   0          14m
-etcd-0                                                3/3     Running   0          17m
-hosted-cluster-config-operator-7bbfbbdd84-t2pvv       1/1     Running   0          14m
-ignition-server-79fcb8fc94-z9bw6                      1/1     Running   0          14m
-ignition-server-proxy-677c977bf9-sx4kq                1/1     Running   0          14m
-ingress-operator-54d8566558-dvc2m                     2/2     Running   0          14m
-konnectivity-agent-6dc44f89b8-2smqm                   1/1     Running   0          14m
-kube-apiserver-77c7b98c94-4hdlv                       4/4     Running   0          16m
-kube-controller-manager-6f4ddbcf6b-qm7sl              1/1     Running   0          2m51s
-kube-scheduler-7d7ddc7c5-2v5tb                        1/1     Running   0          15m
-machine-approver-5dd679b7f8-ff727                     1/1     Running   0          14m
-multus-admission-controller-596457f8df-rfd2h          2/2     Running   0          6m30s
-network-node-identity-6c754b6b5d-dnxhc                3/3     Running   0          6m17s
-oauth-openshift-84cb545d6-vn4hz                       2/2     Running   0          13m
-olm-operator-7857fb84c5-dhsqv                         2/2     Running   0          14m
-openshift-apiserver-c6dbcf894-k8wms                   3/3     Running   0          2m51s
-openshift-controller-manager-8b5bfc944-46znn          1/1     Running   0          14m
-openshift-oauth-apiserver-559b4b5dff-c8t4z            2/2     Running   0          14m
-openshift-route-controller-manager-6c59b4f466-lt4gt   1/1     Running   0          14m
-ovnkube-control-plane-5d8d4b64b9-85ptb                3/3     Running   0          6m23s
-packageserver-5ccf986fdc-46jst                        2/2     Running   0          14m
-redhat-marketplace-catalog-9b5d9884d-sk28n            1/1     Running   0          14m
-redhat-operators-catalog-55b4cf69d5-8dqrn             1/1     Running   0          14m
+NAME                                                  READY   STATUS    RESTARTS      AGE
+capi-provider-5f67665fc-s92cf                         1/1     Running   0             21m
+catalog-operator-7b8589ccff-wvsff                     2/2     Running   2 (18m ago)   18m
+certified-operators-catalog-96c5fd665-ctkx2           1/1     Running   0             18m
+cluster-api-6949888596-7v2fg                          1/1     Running   0             21m
+cluster-autoscaler-57fd57cd5-mqwdx                    1/1     Running   0             18m
+cluster-image-registry-operator-866c55fb67-klr56      2/2     Running   0             18m
+cluster-network-operator-85d5b5c9cf-kf8ht             2/2     Running   0             18m
+cluster-node-tuning-operator-cc669ffc4-9cq85          1/1     Running   0             18m
+cluster-policy-controller-7479fb5685-tvwdz            1/1     Running   0             18m
+cluster-storage-operator-59fb6b99fb-pn95w             1/1     Running   0             18m
+cluster-version-operator-7b747f4d8d-x9fp4             1/1     Running   0             18m
+community-operators-catalog-74b7c8d66d-qg2fg          1/1     Running   0             18m
+control-plane-operator-7489787949-zk4jk               1/1     Running   0             21m
+control-plane-pki-operator-b545ddf55-dtj9w            1/1     Running   0             21m
+csi-snapshot-controller-5886f8d4bc-5dbr6              1/1     Running   0             18m
+csi-snapshot-controller-operator-d8b554675-fdl8d      1/1     Running   0             18m
+csi-snapshot-webhook-7cb9d884-9s5ms                   1/1     Running   0             18m
+dns-operator-58866f6b5-78d86                          1/1     Running   0             18m
+etcd-0                                                3/3     Running   0             21m
+hosted-cluster-config-operator-9f8db7c98-zlv8h        1/1     Running   0             18m
+ignition-server-7f58bcdcf8-4mr4c                      1/1     Running   0             18m
+ignition-server-proxy-7494b7d785-7zvvg                1/1     Running   0             18m
+ingress-operator-d5f4c6d6-nhqb9                       2/2     Running   0             18m
+konnectivity-agent-6c5485d9bb-vwln7                   1/1     Running   0             18m
+kube-apiserver-7c5bb9c695-vtt2d                       4/4     Running   0             20m
+kube-controller-manager-544dd8d4f9-k2fr7              1/1     Running   0             11m
+kube-scheduler-56477d87bd-qrfq2                       1/1     Running   0             19m
+machine-approver-7b85988895-7cvc6                     1/1     Running   0             18m
+multus-admission-controller-74ccdf8dc4-486f2          2/2     Running   0             12m
+network-node-identity-546c9c477-rtqcd                 3/3     Running   0             12m
+oauth-openshift-69dd979f7c-nh96v                      2/2     Running   0             18m
+olm-operator-774bf68cb4-7w9k7                         2/2     Running   0             18m
+openshift-apiserver-6b848587cf-dxvrv                  3/3     Running   0             11m
+openshift-controller-manager-74c45dbcb7-p2gr7         1/1     Running   0             18m
+openshift-oauth-apiserver-758dfd9bb4-qr565            2/2     Running   0             18m
+openshift-route-controller-manager-576d8b7cfd-rldnv   1/1     Running   0             18m
+ovnkube-control-plane-bfc6bb4fd-tl8rd                 3/3     Running   0             12m
+packageserver-7f97b955c6-slctl                        2/2     Running   0             18m
+redhat-marketplace-catalog-5fcdbb6578-gsljc           1/1     Running   0             18m
+redhat-operators-catalog-5b5b659b64-8cknx             1/1     Running   0             18m
 -----
 +
 3. The NodePool will tell us the state of the nodes joining the Hosted Cluster:

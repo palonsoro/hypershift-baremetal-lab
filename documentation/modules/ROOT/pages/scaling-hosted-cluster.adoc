@@ -216,7 +216,7 @@ deployment.apps/test-app created
 deployment.apps/test-app patched
 -----
 +
-3. If we check the pods we will see that we only have one pods and it is in `Running` state, that's because we have enough capacity in the hosted cluster to run the workload.
+3. If we check the pods we will see that we only have one pod and it is in `Running` state, that's because we have enough capacity in the hosted cluster to run the workload.
 +
 [.console-input]
 [source,bash,subs="attributes+,+macros"]
@@ -351,8 +351,6 @@ deployment.apps "test-app" deleted
 -----
 +
 10. Once the `NodePool` gets scaled down, the hosted cluster will be back to two nodes. 
-+
-IMPORTANT: If the node being deleted ends up stuck in `NotReady,SchedulingDisabled` state, follow the instructions xref:scaling-hosted-cluster.adoc#fixing-stuck-deleted-node[here].
 +
 [.console-input]
 [source,bash,subs="attributes+,+macros"]
