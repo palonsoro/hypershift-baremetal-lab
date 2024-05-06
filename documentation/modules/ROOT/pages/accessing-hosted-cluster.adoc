@@ -185,6 +185,7 @@ apiVersion: v1
 metadata:
   annotations:
     metallb.universe.tf/address-pool: lab-network
+    metallb.universe.tf/loadBalancerIPs: 192.168.125.160
   name: metallb-ingress
   namespace: openshift-ingress
 spec:

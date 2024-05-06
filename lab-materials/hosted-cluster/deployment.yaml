@@ -18,6 +18,8 @@ spec:
     serviceNetwork:
       - cidr: 172.31.0.0/16
     networkType: OVNKubernetes
+  controllerAvailabilityPolicy: SingleReplica
+  infrastructureAvailabilityPolicy: SingleReplica
   platform:
     type: Agent
     agent:
