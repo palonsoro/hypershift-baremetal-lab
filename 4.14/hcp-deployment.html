@@ -367,7 +367,7 @@
     <li><a href="hcp-deployment.html">Hosted Control Planes Deployment</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/RHsyseng/hypershift-baremetal-lab/edit/lab-4.14/documentation/modules/ROOT/pages/hcp-deployment.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/RHsyseng/hypershift-baremetal-lab/edit/lab-4.15/documentation/modules/ROOT/pages/hcp-deployment.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
@@ -479,7 +479,7 @@ metadata:
   name: multicluster-engine
   namespace: multicluster-engine
 spec:
-  channel: "stable-2.4"
+  channel: "stable-2.5"
   name: multicluster-engine
   source: redhat-operators
   sourceNamespace: openshift-marketplace
@@ -689,11 +689,11 @@ spec:
       requests:
         storage: 20Gi
   osImages:
-    - openshiftVersion: "4.14"
-      url: "https://mirror.openshift.com/pub/openshift-v4/x86_64/dependencies/rhcos/4.14/4.14.0/rhcos-4.14.0-x86_64-live.x86_64.iso"
-      rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/x86_64/dependencies/rhcos/4.14/4.14.0/rhcos-4.14.0-x86_64-live-rootfs.x86_64.img"
+    - openshiftVersion: "4.15"
+      url: "https://mirror.openshift.com/pub/openshift-v4/x86_64/dependencies/rhcos/4.15/4.15.0/rhcos-4.15.0-x86_64-live.x86_64.iso"
+      rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/x86_64/dependencies/rhcos/4.15/4.15.0/rhcos-4.15.0-x86_64-live-rootfs.x86_64.img"
       cpuArchitecture: "x86_64"
-      version: "414.92.202310210434-0"
+      version: "415.92.202402201450-0"
 EOF</code></pre>
 </div>
 </div>
@@ -741,17 +741,17 @@ assisted-service-867f4446b9-slmhb   2/2     Running   0          5m19s</code></p
 </div>
 </div>
 <div class="paragraph">
-<p>This lab was tested with specific cluster versions, and as such, we need to make sure that the release v4.14.1 is visible when using MCE. In order to make it visible we need to run the following command.</p>
+<p>This lab was tested with specific cluster versions, and as such, we need to make sure that the release v4.15.6 is visible when using MCE. In order to make it visible we need to run the following command.</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/hypershift-lab/mgmt-kubeconfig label clusterimageset \
-    img4.14.1-multi-appsub visible=true --overwrite</code></pre>
+    img4.15.6-multi-appsub visible=true --overwrite</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">clusterimageset.hive.openshift.io/img4.14.1-multi-appsub labeled</code></pre>
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">clusterimageset.hive.openshift.io/img4.15.6-multi-appsub labeled</code></pre>
 </div>
 </div>
 <div class="paragraph">
