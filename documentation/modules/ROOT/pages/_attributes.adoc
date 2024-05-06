@@ -9,7 +9,7 @@
 :mce-version: 2.5
 :hosted-control-planes-version: 4.15
 :management-cluster-version: 4.15.10
-:management-cluster-kubeversion: v1.27.8+4fab27b
+:management-cluster-kubeversion: v1.28.8+8974577
 :hosted-cluster-version-1: 4.15.6
 :hosted-cluster-kubeversion-1: v1.28.7+f1b5f6c
 :hosted-cluster-rhcos-machineos-1: 415.92.202403270524-0
