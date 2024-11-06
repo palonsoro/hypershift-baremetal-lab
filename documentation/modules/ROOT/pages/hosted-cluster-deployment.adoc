@@ -38,6 +38,7 @@ image::hc-wizard1.png[Hosted Cluster Wizard Screen 1]
 +
 .. `Controller availability policy`: Single Replica
 .. `Infrastructure availability policy`: Single Replica
+.. `OLM catalog placement`: Management
 .. `Namespace`: hardware-inventory
 .. `Use autoscaling`: Unchecked
 .. `Number of hosts`: 2
@@ -240,7 +241,7 @@ oc --kubeconfig ~/hypershift-lab/mgmt-kubeconfig -n hosted get \
 [source,console,subs="attributes+,+macros"]
 -----
 NAME                CLUSTER   DESIRED NODES   CURRENT NODES   AUTOSCALING   AUTOREPAIR   VERSION   UPDATINGVERSION   UPDATINGCONFIG   MESSAGE
-nodepool-hosted-1   hosted    2               2               False         False        {hosted-cluster-version-1}                                      
+nodepool-hosted-1   hosted    2               2               False         False        {hosted-cluster-version-1}    False             False                                          
 -----
 
 At this point the Hosted Cluster deployment is not finished yet, since we need to fix Ingress for the cluster to be fully deployed. We will do that in the next section where we will learn how to access the Hosted Cluster.
