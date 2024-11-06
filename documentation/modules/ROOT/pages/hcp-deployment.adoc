@@ -107,7 +107,7 @@ multicluster-engine-operator-5c899596bd-x92kd   1/1     Running   0          3m5
 +
 4. Once the operator is up and running we can go ahead and create the `MultiClusterEngine` operand to deploy a multicluster engine.
 +
-IMPORTANT: Starting in OCP 4.14, Hosted Control Plane components will be deployed as part of MCE by default.
+IMPORTANT: Hosted Control Plane components will be deployed as part of MCE by default.
 +
 [.console-input]
 [source,bash,subs="attributes+,+macros"]

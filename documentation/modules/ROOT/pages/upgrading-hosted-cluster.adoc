@@ -55,9 +55,9 @@ oc --insecure-skip-tls-verify=true --kubeconfig ~/hypershift-lab/hosted-kubeconf
 [console-input]
 [source,console,subs="attributes+,+macros"]
 -----
-NAME             STATUS                      ROLES    AGE    VERSION           INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                                                       KERNEL-VERSION                 CONTAINER-RUNTIME
-hosted-worker0   Ready,SchedulingDisabled    worker   148m   {hosted-cluster-kubeversion-1}   192.168.125.30   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-1} (Plow)   {hosted-cluster-kernel-1}   {hosted-cluster-container-runtime-1}
-hosted-worker1   Ready                       worker   147m   {hosted-cluster-kubeversion-1}   192.168.125.31   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-1} (Plow)   {hosted-cluster-kernel-1}   {hosted-cluster-container-runtime-1}
+NAME             STATUS                     ROLES    AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                                                KERNEL-VERSION                 CONTAINER-RUNTIME
+hosted-worker0   Ready,SchedulingDisabled   worker   4h44m   {hosted-cluster-kubeversion-1}   192.168.125.30   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-1}   {hosted-cluster-kernel-1}   {hosted-cluster-container-runtime-1}
+hosted-worker2   Ready                      worker   4h44m   {hosted-cluster-kubeversion-1}   192.168.125.32   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-1}   {hosted-cluster-kernel-1}   {hosted-cluster-container-runtime-1}
 -----
 4. Once completed, the nodes will be running the newer version (RHCOS and CRIO versions changed).
 +
@@ -71,9 +71,9 @@ oc --insecure-skip-tls-verify=true --kubeconfig ~/hypershift-lab/hosted-kubeconf
 [console-input]
 [source,console,subs="attributes+,+macros"]
 -----
-NAME             STATUS   ROLES    AGE    VERSION           INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                                                       KERNEL-VERSION                 CONTAINER-RUNTIME
-hosted-worker0   Ready    worker   148m   {hosted-cluster-kubeversion-2}   192.168.125.30   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-2} (Plow)   {hosted-cluster-kernel-2}   {hosted-cluster-container-runtime-2}
-hosted-worker1   Ready    worker   147m   {hosted-cluster-kubeversion-2}   192.168.125.31   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-2} (Plow)   {hosted-cluster-kernel-2}   {hosted-cluster-container-runtime-2}
+NAME             STATUS   ROLES    AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                                                KERNEL-VERSION                 CONTAINER-RUNTIME
+hosted-worker0   Ready    worker   4h53m   {hosted-cluster-kubeversion-2}   192.168.125.30   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-2}   {hosted-cluster-kernel-2}   {hosted-cluster-container-runtime-2}
+hosted-worker2   Ready    worker   4h53m   {hosted-cluster-kubeversion-2}   192.168.125.32   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-2}   {hosted-cluster-kernel-2}   {hosted-cluster-container-runtime-2}
 -----
 5. The NodePool should report the correct version as well.
 +
@@ -87,7 +87,7 @@ oc --kubeconfig ~/hypershift-lab/mgmt-kubeconfig -n hosted get nodepool nodepool
 [source,console,subs="attributes+,+macros"]
 -----
 NAME                CLUSTER   DESIRED NODES   CURRENT NODES   AUTOSCALING   AUTOREPAIR   VERSION   UPDATINGVERSION   UPDATINGCONFIG   MESSAGE
-nodepool-hosted-1   hosted    2               2               False         False        {hosted-cluster-version-2}
+nodepool-hosted-1   hosted    2               2               False         False        {hosted-cluster-version-2}    False             False            
 -----
 
 [#upgrading-hostedcluster-cli]
@@ -183,9 +183,9 @@ oc --insecure-skip-tls-verify=true --kubeconfig ~/hypershift-lab/hosted-kubeconf
 [console-input]
 [source,console,subs="attributes+,+macros"]
 -----
-NAME             STATUS                     ROLES    AGE    VERSION           INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                                                       KERNEL-VERSION                 CONTAINER-RUNTIME
-hosted-worker0   Ready,SchedulingDisabled   worker   3h     {hosted-cluster-kubeversion-2}   192.168.125.30   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-2} (Plow)   {hosted-cluster-kernel-2}   {hosted-cluster-container-runtime-2}
-hosted-worker1   Ready                      worker   179m   {hosted-cluster-kubeversion-2}   192.168.125.31   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-2} (Plow)   {hosted-cluster-kernel-2}   {hosted-cluster-container-runtime-2}
+NAME             STATUS                     ROLES    AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                                                KERNEL-VERSION                 CONTAINER-RUNTIME
+hosted-worker0   Ready,SchedulingDisabled   worker   5h14m   {hosted-cluster-kubeversion-2}   192.168.125.30   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-2}   {hosted-cluster-kernel-2}   {hosted-cluster-container-runtime-2}
+hosted-worker2   Ready                      worker   5h14m   {hosted-cluster-kubeversion-2}   192.168.125.32   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-2}   {hosted-cluster-kernel-2}   
 -----
 +
 3. Once completed, we can see both nodes are running a newer version (check the Node, RHCOS, Kernel and CRIO versions).
@@ -200,9 +200,9 @@ oc --insecure-skip-tls-verify=true --kubeconfig ~/hypershift-lab/hosted-kubeconf
 [console-input]
 [source,console,subs="attributes+,+macros"]
 -----
-NAME             STATUS   ROLES    AGE    VERSION           INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                                                       KERNEL-VERSION                 CONTAINER-RUNTIME
-hosted-worker0   Ready    worker   3h9m   {hosted-cluster-kubeversion-3}   192.168.125.30   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-3} (Plow)   {hosted-cluster-kernel-3}   {hosted-cluster-container-runtime-3}
-hosted-worker1   Ready    worker   3h8m   {hosted-cluster-kubeversion-3}   192.168.125.31   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-3} (Plow)   {hosted-cluster-kernel-3}   {hosted-cluster-container-runtime-3}
+NAME             STATUS   ROLES    AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                                                KERNEL-VERSION                 CONTAINER-RUNTIME
+hosted-worker0   Ready    worker   5h24m   {hosted-cluster-kubeversion-3}   192.168.125.30   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-3}   {hosted-cluster-kernel-3}   {hosted-cluster-container-runtime-3}
+hosted-worker2   Ready    worker   4h24m   {hosted-cluster-kubeversion-3}   192.168.125.32   <none>        Red Hat Enterprise Linux CoreOS {hosted-cluster-rhcos-machineos-3}   {hosted-cluster-kernel-3}   {hosted-cluster-container-runtime-3}
 -----
 4. The NodePool should report the correct version as well.
 +
@@ -216,5 +216,5 @@ oc --kubeconfig ~/hypershift-lab/mgmt-kubeconfig -n hosted get nodepool nodepool
 [source,console,subs="attributes+,+macros"]
 -----
 NAME                CLUSTER   DESIRED NODES   CURRENT NODES   AUTOSCALING   AUTOREPAIR   VERSION   UPDATINGVERSION   UPDATINGCONFIG   MESSAGE
-nodepool-hosted-1   hosted    2               2               False         False        {hosted-cluster-version-3}
+nodepool-hosted-1   hosted    2               2               False         False        {hosted-cluster-version-3}    False             False   
 -----
