@@ -55,7 +55,7 @@ dnf -y install kcli bash-completion vim jq tar git python3-cherrypy
 [source,bash,subs="attributes+,+macros"]
 -----
 kcli download oc -P version=stable -P tag='{tooling-version}'
-mv oc /usr/bin/
+mv oc /usr/local/bin/
 -----
 
 [#configure-lab-network]
